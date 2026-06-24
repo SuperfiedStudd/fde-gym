@@ -1,0 +1,11 @@
+{
+  "id": "lv1-claims-pagination",
+  "title": "Make claims pagination real",
+  "level": "LV1",
+  "skill": "API and SQL",
+  "labels": ["bugfix", "api", "sql"],
+  "summary": "Apply the advertised page controls while preserving stable ordering and total counts.",
+  "estimated_minutes": 50,
+  "checks": ["offset and limit", "stable ordering", "total count semantics"]
+}
+

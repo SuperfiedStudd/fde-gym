@@ -1,0 +1,11 @@
+target-version = "py312"
+line-length = 100
+exclude = ["missions", "node_modules"]
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008"]
+
+[lint.per-file-ignores]
+"scripts/evaluate/*.py" = ["E402"]
+

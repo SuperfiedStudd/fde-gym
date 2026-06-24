@@ -1,0 +1,11 @@
+{
+  "id": "lv3-async-claims-processor",
+  "title": "Fix the asynchronous claims processor",
+  "level": "LV3",
+  "skill": "Async reliability",
+  "labels": ["queue", "async", "incident"],
+  "summary": "Find why jobs report success while their claim events never reach Postgres.",
+  "estimated_minutes": 90,
+  "checks": ["coroutine completion", "failure propagation", "job status ordering", "regression test"]
+}
+

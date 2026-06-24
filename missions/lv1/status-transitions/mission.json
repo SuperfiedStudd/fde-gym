@@ -1,0 +1,11 @@
+{
+  "id": "lv1-status-transitions",
+  "title": "Enforce claim status transitions",
+  "level": "LV1",
+  "skill": "Business logic",
+  "labels": ["bugfix", "api", "state-machine"],
+  "summary": "Replace permissive status changes with an explicit, testable transition policy.",
+  "estimated_minutes": 55,
+  "checks": ["transition matrix", "409 invalid transition", "valid route behavior"]
+}
+

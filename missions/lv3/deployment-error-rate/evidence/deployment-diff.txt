@@ -1,0 +1,9 @@
+release=2026.06.17-rc3
+api_previous=claimops-api:7f12a9b
+api_current=claimops-api:ab481c0
+worker_previous=claimops-worker:7f12a9b
+worker_current=claimops-worker:ab481c0
+PAYMENT_TIMEOUT_MS: 2500 -> 250
+WORKER_CONCURRENCY: 4 -> 12
+DB_POOL_SIZE: 10 -> 5
+

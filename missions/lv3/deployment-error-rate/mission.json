@@ -1,0 +1,11 @@
+{
+  "id": "lv3-deployment-error-rate",
+  "title": "Investigate the post-deployment error spike",
+  "level": "LV3",
+  "skill": "Incident response",
+  "labels": ["incident", "deploy", "observability"],
+  "summary": "Correlate logs and release changes, mitigate safely, and leave an evidence-based incident note.",
+  "estimated_minutes": 120,
+  "checks": ["timeline evidence", "root-cause link", "safe mitigation", "regression guard", "postmortem"]
+}
+

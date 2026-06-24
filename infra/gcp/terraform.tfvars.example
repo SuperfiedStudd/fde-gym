@@ -1,0 +1,10 @@
+project_id          = "your-dedicated-fde-gym-project"
+region              = "us-west1"
+object_bucket_name  = "your-globally-unique-fde-gym-bucket"
+api_image            = "us-west1-docker.pkg.dev/PROJECT/fde-gym/api:REPLACE_WITH_SHA"
+web_image            = "us-west1-docker.pkg.dev/PROJECT/fde-gym/web:REPLACE_WITH_SHA"
+db_password          = "replace-with-a-long-random-practice-password"
+sql_tier             = "db-f1-micro"
+allow_public         = false
+force_destroy_bucket = false
+

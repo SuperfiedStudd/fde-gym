@@ -1,0 +1,11 @@
+{
+  "id": "lv1-sql-status-filter",
+  "title": "Correct the claim status filter",
+  "level": "LV1",
+  "skill": "SQL debugging",
+  "labels": ["bugfix", "sql", "api"],
+  "summary": "Trace an empty result set to a predicate aimed at the wrong database column.",
+  "estimated_minutes": 30,
+  "checks": ["status predicate", "count query parity", "unfiltered regression"]
+}
+

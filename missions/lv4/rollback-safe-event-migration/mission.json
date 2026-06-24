@@ -1,0 +1,11 @@
+{
+  "id": "lv4-rollback-safe-event-migration",
+  "title": "Ship a rollback-safe claim event migration",
+  "level": "LV4",
+  "skill": "Database change management",
+  "labels": ["migration", "deploy", "postgres"],
+  "summary": "Evolve high-volume event storage across mixed application versions with a reversible expand/contract plan.",
+  "estimated_minutes": 180,
+  "checks": ["expand/contract phases", "mixed-version compatibility", "backfill resumability", "rollback drill", "operator runbook"]
+}
+

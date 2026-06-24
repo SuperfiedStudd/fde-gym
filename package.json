@@ -1,0 +1,24 @@
+{
+  "name": "fde-gym",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web",
+    "apps/edge-service",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace @fde-gym/web run dev",
+    "dev:edge": "npm --workspace @fde-gym/edge-service run dev",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "overrides": {
+    "postcss": "8.5.15",
+    "esbuild": "0.28.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "lv4-observability-upgrade",
+  "title": "Build a cross-service observability upgrade",
+  "level": "LV4",
+  "skill": "Observability design",
+  "labels": ["observability", "metrics", "tracing"],
+  "summary": "Create a coherent logs, metrics, and traces model that answers concrete ClaimOps incident questions.",
+  "estimated_minutes": 200,
+  "checks": ["correlation propagation", "RED metrics", "bounded cardinality", "dashboard and alerts", "design note"]
+}
+

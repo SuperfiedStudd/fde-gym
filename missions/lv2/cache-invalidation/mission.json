@@ -1,0 +1,11 @@
+{
+  "id": "lv2-cache-invalidation",
+  "title": "Debug stale claim cache invalidation",
+  "level": "LV2",
+  "skill": "Caching",
+  "labels": ["cache", "redis", "bugfix"],
+  "summary": "Keep point reads coherent after claim mutations without turning off the cache.",
+  "estimated_minutes": 75,
+  "checks": ["mutation invalidation", "read-after-write", "Redis failure policy", "cache key consistency"]
+}
+

@@ -1,0 +1,11 @@
+{
+  "id": "lv3-assignment-race",
+  "title": "Eliminate the claim assignment race",
+  "level": "LV3",
+  "skill": "Concurrency control",
+  "labels": ["race-condition", "postgres", "api"],
+  "summary": "Prevent concurrent supervisors from creating two active owners for one claim.",
+  "estimated_minutes": 130,
+  "checks": ["concurrent write test", "database invariant", "optimistic conflict", "atomic audit"]
+}
+

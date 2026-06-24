@@ -1,0 +1,11 @@
+{
+  "id": "lv3-search-latency",
+  "title": "Reduce claim search p95 latency",
+  "level": "LV3",
+  "skill": "Database performance",
+  "labels": ["latency", "sql", "postgres"],
+  "summary": "Use evidence from query plans to make frequent claim searches index-friendly.",
+  "estimated_minutes": 140,
+  "checks": ["EXPLAIN evidence", "index-supported predicate", "result correctness", "migration safety"]
+}
+

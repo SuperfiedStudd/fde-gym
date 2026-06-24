@@ -1,0 +1,17 @@
+[tool.pytest.ini_options]
+testpaths = ["tests/platform"]
+pythonpath = ["apps/api", "apps/worker", "."]
+addopts = "-ra"
+markers = [
+  "mission: intentionally failing mission acceptance checks",
+  "integration: requires local Docker dependencies",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+exclude = ["missions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+

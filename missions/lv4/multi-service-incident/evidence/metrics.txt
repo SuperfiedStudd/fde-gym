@@ -1,0 +1,5 @@
+09:15 api_p95_ms=210 api_5xx=0.004 db_pool_waiters=0 redis_queue=18 worker_restarts=0
+09:20 api_p95_ms=980 api_5xx=0.051 db_pool_waiters=14 redis_queue=244 worker_restarts=2
+09:25 api_p95_ms=1820 api_5xx=0.094 db_pool_waiters=31 redis_queue=61 worker_restarts=7
+09:30 api_p95_ms=760 api_5xx=0.032 db_pool_waiters=8 redis_queue=391 worker_restarts=9
+

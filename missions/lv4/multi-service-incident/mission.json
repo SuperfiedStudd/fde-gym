@@ -1,0 +1,11 @@
+{
+  "id": "lv4-multi-service-incident",
+  "title": "Stabilize a multi-service claims incident",
+  "level": "LV4",
+  "skill": "Production ownership",
+  "labels": ["incident", "queue", "redis", "postgres"],
+  "summary": "Diagnose interacting API, worker, Redis, and Postgres failures and implement a narrow durable repair.",
+  "estimated_minutes": 210,
+  "checks": ["cross-service timeline", "failure reproduction", "safe remediation", "load regression", "technical note"]
+}
+

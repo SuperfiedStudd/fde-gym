@@ -1,0 +1,11 @@
+{
+  "id": "lv2-payment-logging",
+  "title": "Instrument the payment simulation flow",
+  "level": "LV2",
+  "skill": "Structured logging",
+  "labels": ["observability", "logs", "api"],
+  "summary": "Replace context-free prints with useful, safe, machine-queryable payment events.",
+  "estimated_minutes": 65,
+  "checks": ["JSON log events", "required correlation fields", "no sensitive fields", "outcome coverage"]
+}
+

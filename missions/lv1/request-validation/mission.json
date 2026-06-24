@@ -1,0 +1,11 @@
+{
+  "id": "lv1-request-validation",
+  "title": "Harden claim request validation",
+  "level": "LV1",
+  "skill": "API contracts",
+  "labels": ["bugfix", "api", "validation"],
+  "summary": "Stop malformed claim submissions at the HTTP boundary without changing valid clients.",
+  "estimated_minutes": 45,
+  "checks": ["invalid payload matrix", "422 response contract", "valid submission regression"]
+}
+

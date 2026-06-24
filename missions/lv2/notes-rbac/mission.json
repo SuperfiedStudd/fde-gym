@@ -1,0 +1,11 @@
+{
+  "id": "lv2-notes-rbac",
+  "title": "Repair role-based access for claim notes",
+  "level": "LV2",
+  "skill": "Authorization",
+  "labels": ["auth", "permissions", "api"],
+  "summary": "Move from role-only checks to role plus resource ownership for sensitive notes.",
+  "estimated_minutes": 90,
+  "checks": ["role matrix", "assignment ownership", "inactive user denial", "audit record"]
+}
+

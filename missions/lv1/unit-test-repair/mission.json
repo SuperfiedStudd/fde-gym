@@ -1,0 +1,11 @@
+{
+  "id": "lv1-unit-test-repair",
+  "title": "Repair a misleading unit test suite",
+  "level": "LV1",
+  "skill": "Testing fundamentals",
+  "labels": ["bugfix", "tests", "refactor"],
+  "summary": "Separate stale expectations from real regressions in a small claim-fee test suite.",
+  "estimated_minutes": 40,
+  "checks": ["test suite passes", "boundary coverage", "production code unchanged"]
+}
+

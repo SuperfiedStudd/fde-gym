@@ -1,0 +1,11 @@
+{
+  "id": "lv2-worker-retries",
+  "title": "Stop the worker from dropping failed jobs",
+  "level": "LV2",
+  "skill": "Queues and retries",
+  "labels": ["queue", "reliability", "bugfix"],
+  "summary": "Introduce bounded retries and dead-letter handling without losing work on failure.",
+  "estimated_minutes": 100,
+  "checks": ["retry state machine", "bounded backoff", "dead-letter terminal path", "job durability"]
+}
+

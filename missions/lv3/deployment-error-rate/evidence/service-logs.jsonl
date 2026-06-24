@@ -1,0 +1,6 @@
+{"ts":"2026-06-17T19:05:12.011Z","service":"api","release":"ab481c0","event":"payment_simulation_failed","claim_id":"20000000-0000-0000-0000-000000000003","error":"TimeoutError","duration_ms":252}
+{"ts":"2026-06-17T19:05:12.080Z","service":"api","release":"ab481c0","event":"request_complete","route":"POST /claims","status":500,"duration_ms":1011,"error":"PoolTimeout"}
+{"ts":"2026-06-17T19:05:14.203Z","service":"worker","release":"ab481c0","event":"job_failed","kind":"document.generate","error":"renderer unavailable","attempt":1}
+{"ts":"2026-06-17T19:05:15.422Z","service":"api","release":"ab481c0","event":"request_complete","route":"GET /claims/{id}","status":200,"duration_ms":18}
+{"ts":"2026-06-17T19:06:01.004Z","service":"api","release":"ab481c0","event":"payment_simulation_failed","claim_id":"20000000-0000-0000-0000-000000000003","error":"TimeoutError","duration_ms":251}
+

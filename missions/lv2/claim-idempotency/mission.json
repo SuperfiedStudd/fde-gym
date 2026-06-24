@@ -1,0 +1,11 @@
+{
+  "id": "lv2-claim-idempotency",
+  "title": "Make claim submission idempotent",
+  "level": "LV2",
+  "skill": "API reliability",
+  "labels": ["api", "idempotency", "data"],
+  "summary": "Ensure retried submissions return the original result without duplicate side effects.",
+  "estimated_minutes": 110,
+  "checks": ["same-key replay", "payload mismatch conflict", "event uniqueness", "concurrent requests"]
+}
+

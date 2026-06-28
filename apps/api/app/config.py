@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     edge_service_url: str = "http://localhost:3001"
     log_level: str = "INFO"
 
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(extra="ignore")
 
 
 @lru_cache

@@ -20,16 +20,21 @@ The cloud path maps API/web to Cloud Run, Postgres to Cloud SQL, queueing to Pub
 
 ## Start locally
 
-Requirements: Docker Desktop with Compose v2. Optional host tooling: Python 3.12+, Node 22+, and npm 10+.
+Requirements: Docker Desktop with Compose v2. For host scripts and evaluation, use Python 3.12 exactly. Node 22+ and npm 10+ are optional unless you run services outside Docker. Do not use Python 3.13 or newer for this repo yet.
 
-Prefer Python 3.12 for host-side scripts and evaluation. If your machine defaults to Python 3.13, use an explicit 3.12 interpreter for the project virtual environment to match the service/runtime assumptions.
+From a clean PowerShell terminal:
 
-```bash
-copy .env.example .env
+```powershell
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+powershell -ExecutionPolicy Bypass -File .\scripts\dev\bootstrap.ps1 -Recreate
+.\.venv\Scripts\Activate.ps1
 docker compose up --build -d
+powershell -ExecutionPolicy Bypass -File .\scripts\dev\doctor.ps1
 ```
 
-On macOS/Linux use `cp .env.example .env`. Then open:
+The doctor retries for up to three minutes, prints Compose status, and checks the API, edge service, missions API, and Prometheus. Do not run mission evaluation until it reports that the stack is ready.
+
+Then open:
 
 - Cockpit: <http://localhost:3000>
 - FastAPI docs: <http://localhost:8000/docs>
@@ -38,13 +43,16 @@ On macOS/Linux use `cp .env.example .env`. Then open:
 
 Detached mode (`-d`) is the normal path when you want the stack to keep running in the background. Use attached mode (`docker compose up --build`) when you want live combined logs in the terminal and do not mind occupying that shell.
 
-Smoke check the stack before running mission evaluators:
+The doctor is the preferred readiness check. These manual checks are also useful:
 
-```bash
-curl http://localhost:8000/health
-curl http://localhost:3001/health
-curl http://localhost:8000/missions
+```powershell
+curl.exe http://localhost:8000/health
+curl.exe http://localhost:3001/health
+curl.exe http://localhost:8000/missions
+curl.exe http://localhost:9090
 ```
+
+In Windows PowerShell, plain `curl` may be an alias for `Invoke-WebRequest`; use `curl.exe` when you want curl behavior and output.
 
 The database initializes automatically from `infra/docker/postgres/`. Push pending seed jobs to Redis when a mission needs the worker:
 
@@ -106,6 +114,7 @@ For a manual reset:
 ```bash
 docker compose down --volumes
 docker compose up --build -d
+powershell -ExecutionPolicy Bypass -File .\scripts\dev\doctor.ps1
 python scripts/seed/enqueue.py
 ```
 
@@ -141,3 +150,14 @@ Cloud deployment is optional and never required for local missions. Start with [
 - `MISSION_BUG(<mission-id>)` identifies a seeded seam, not necessarily the entire solution.
 - LV3/LV4 missions also contain incomplete technical notes/runbooks on purpose.
 - Never make the full mission suite green in one cleanup pass; that would solve the gym instead of using it.
+
+## Review the cockpit before your first mission
+
+Once the doctor passes, visually inspect the frontend and send screenshots of these pages back to the Codex thread for review:
+
+- <http://localhost:3000>
+- <http://localhost:3000/missions>
+- Any mission detail page, such as <http://localhost:3000/missions/lv1-request-validation>
+- <http://localhost:3000/progress>
+
+This review is for scaffold and usability issues only; do not begin fixing mission defects yet.

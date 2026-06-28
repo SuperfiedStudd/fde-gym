@@ -1,5 +1,6 @@
 .env
 .venv/
+.codex-write-probe.txt
 __pycache__/
 .pytest_cache/
 .ruff_cache/
@@ -12,4 +13,3 @@ data/progress.json
 infra/gcp/.terraform/
 infra/gcp/*.tfstate*
 infra/gcp/tfplan
-

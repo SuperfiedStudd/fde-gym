@@ -14,7 +14,10 @@ export default async function ProgressPage() {
     <div className="page-shell">
       <div className="page-heading">
         <div><p className="eyebrow">OPERATOR READINESS</p><h1>Progress matrix</h1></div>
-        <p>Completion is a record, not a score. Keep the evidence and tradeoffs in your story bank.</p>
+        <div className="page-heading-copy">
+          <p>Completion is a record, not a score. Keep the evidence and tradeoffs in your story bank.</p>
+          <p className="manual-progress-note">Progress is manually recorded after local evaluator success.</p>
+        </div>
       </div>
       <div className="level-matrix">
         {(['LV1', 'LV2', 'LV3', 'LV4'] as const).map((level) => {

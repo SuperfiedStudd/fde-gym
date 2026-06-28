@@ -23,3 +23,12 @@ def test_intentional_bugs_are_explicitly_tagged() -> None:
         for path in root.rglob("*.py")
     )
     assert tagged >= 10
+
+
+def test_windows_developer_entrypoints_exist() -> None:
+    for path in (
+        Path("requirements-dev.txt"),
+        Path("scripts/dev/bootstrap.ps1"),
+        Path("scripts/dev/doctor.ps1"),
+    ):
+        assert path.exists(), f"missing developer entrypoint: {path}"

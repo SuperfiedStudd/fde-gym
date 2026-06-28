@@ -11,6 +11,10 @@ export default async function DashboardPage() {
   ])
   const completed = Object.keys(progress.completed).length
   const completion = missions.length ? Math.round((completed / missions.length) * 100) : 0
+  const recommendedMission =
+    missions.find(
+      (mission) => mission.id === 'lv1-request-validation' && !progress.completed[mission.id],
+    ) ?? missions.find((mission) => !progress.completed[mission.id])
 
   return (
     <div className="page-shell">
@@ -45,15 +49,17 @@ export default async function DashboardPage() {
             </div>
             <Link href="/missions">View all {missions.length} -&gt;</Link>
           </div>
-          {missions[completed] ? (
-            <Link className="next-mission" href={`/missions/${missions[completed].id}`}>
-              <span className="level-code">{missions[completed].level}</span>
+          {recommendedMission ? (
+            <Link className="next-mission" href={`/missions/${recommendedMission.id}`}>
+              <span className="level-code">{recommendedMission.level}</span>
               <div>
-                <h3>{missions[completed].title}</h3>
-                <p>{missions[completed].summary}</p>
+                <h3>{recommendedMission.title}</h3>
+                <p>{recommendedMission.summary}</p>
               </div>
-              <span className="operation-id">{missions[completed].id}</span>
+              <span className="operation-id">{recommendedMission.id}</span>
             </Link>
+          ) : missions.length ? (
+            <p className="empty-state">All available missions have been recorded.</p>
           ) : (
             <p className="empty-state">Mission API unavailable. Start the local stack to populate the queue.</p>
           )}

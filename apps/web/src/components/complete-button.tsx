@@ -24,9 +24,12 @@ export function CompleteButton({ missionId, completed }: { missionId: string; co
   }
 
   return (
-    <button className="primary-button" onClick={complete} disabled={completed || pending}>
-      {completed ? 'Mission recorded' : pending ? 'Recording…' : 'Mark complete'}
-    </button>
+    <div className="completion-control">
+      <button className="primary-button" onClick={complete} disabled={completed || pending}>
+        {completed ? 'Completion recorded' : pending ? 'Recording…' : 'Record completion'}
+      </button>
+      <p>Only use this after the evaluator passes locally.</p>
+    </div>
   )
 }
 

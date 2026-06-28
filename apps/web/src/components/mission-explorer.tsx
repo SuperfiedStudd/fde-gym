@@ -56,6 +56,7 @@ export function MissionExplorer({ missions, progress }: Props) {
                 </span>
                 <span>{mission.estimated_minutes}m</span>
               </div>
+              <code className="mission-id">{mission.id}</code>
               <h2>{mission.title}</h2>
               <p>{mission.summary}</p>
               <div className="labels">
@@ -63,6 +64,7 @@ export function MissionExplorer({ missions, progress }: Props) {
                   <span key={label}>{label}</span>
                 ))}
               </div>
+              <code className="mission-command-hint">run check / --mission {mission.id}</code>
               <div className="mission-footer">
                 <span>{mission.skill}</span>
                 <span aria-hidden>↗</span>

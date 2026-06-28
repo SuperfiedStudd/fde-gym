@@ -21,7 +21,7 @@ async def enqueue() -> int:
             "SELECT id, kind, payload, attempts, max_attempts FROM jobs WHERE status = 'pending'"
         )
         for row in rows:
-            job = {key: row[key] for key in row}
+            job = dict(row)
             job["id"] = str(job["id"])
             if isinstance(job["payload"], str):
                 job["payload"] = json.loads(job["payload"])

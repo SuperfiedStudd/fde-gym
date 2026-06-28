@@ -30,9 +30,9 @@ export default async function DashboardPage() {
 
       <section className="metric-strip" aria-label="System metrics">
         <Metric label="System" value={health?.overall ?? 'offline'} status={health?.overall} />
-        <Metric label="Queue depth" value={String(health?.queue_depth ?? '—')} />
-        <Metric label="p95 latency" value={health ? `${health.p95_latency_ms} ms` : '—'} />
-        <Metric label="Error rate" value={health ? `${(health.error_rate * 100).toFixed(1)}%` : '—'} />
+        <Metric label="Queue depth" value={String(health?.queue_depth ?? '--')} />
+        <Metric label="p95 latency" value={health ? `${health.p95_latency_ms} ms` : '--'} />
+        <Metric label="Error rate" value={health ? `${(health.error_rate * 100).toFixed(1)}%` : '--'} />
         <Metric label="Progress" value={`${completion}%`} />
       </section>
 
@@ -43,7 +43,7 @@ export default async function DashboardPage() {
               <p className="eyebrow">MISSION QUEUE</p>
               <h2>Recommended next operation</h2>
             </div>
-            <Link href="/missions">View all {missions.length} →</Link>
+            <Link href="/missions">View all {missions.length} -&gt;</Link>
           </div>
           {missions[completed] ? (
             <Link className="next-mission" href={`/missions/${missions[completed].id}`}>
@@ -82,9 +82,10 @@ export default async function DashboardPage() {
 
         <div className="panel terminal-panel">
           <div className="terminal-title"><span /> local operator commands</div>
-          <pre><code>{`$ docker compose up --build
+          <pre><code>{`$ docker compose up --build -d
+$ curl http://localhost:8000/health
 $ python scripts/seed/enqueue.py
-$ python scripts/evaluate/run.py \\
+$ python scripts/evaluate/run.py \
     --mission lv1-request-validation
 $ docker compose logs -f api worker`}</code></pre>
         </div>
@@ -101,4 +102,3 @@ function Metric({ label, value, status }: { label: string; value: string; status
     </div>
   )
 }
-

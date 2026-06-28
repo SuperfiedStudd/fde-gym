@@ -4,17 +4,28 @@
 
 1. Install Docker Desktop and confirm `docker compose version` works.
 2. Copy `.env.example` to `.env`.
-3. Start the stack with `docker compose up --build`.
-4. Wait for API health, then open <http://localhost:3000>.
+3. Start the stack with `docker compose up --build -d`.
+4. Wait for the health checks to settle, then open <http://localhost:3000>.
+
+Detached mode (`-d`) is the recommended default because it keeps the stack running in the background. Use attached mode (`docker compose up --build`) if you want to watch combined logs directly in the terminal.
 
 Useful commands:
 
 ```bash
 docker compose ps
 docker compose logs -f api worker edge-service
+curl http://localhost:8000/health
+curl http://localhost:3001/health
+curl http://localhost:8000/missions
 python scripts/seed/enqueue.py
 python scripts/evaluate/list.py
 ```
+
+Run mission evaluation only after those smoke checks are healthy. Intended mission failures should come from the exercise itself, not from the stack still warming up.
+
+## Python version note
+
+Prefer Python 3.12 for local scripts, virtual environments, and evaluators. If `python --version` shows 3.13, create or activate the project environment with Python 3.12 explicitly so host behavior stays aligned with the service images.
 
 ## Host development
 
@@ -75,4 +86,3 @@ npm run typecheck
 ```
 
 Platform tests protect the scaffolding. Focused mission evaluation is expected to fail first, then pass after your repair.
-

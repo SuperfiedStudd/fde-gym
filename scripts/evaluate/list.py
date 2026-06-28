@@ -9,8 +9,9 @@ from scripts.evaluate.catalog import load_catalog
 
 def main() -> None:
     checks = load_catalog()
-    print(f"{'LEVEL':<6} {'MISSION':<38} {'SKILL':<24} CHECK")
-    print("-" * 100)
+    print("Valid mission ids for `python scripts/evaluate/run.py --mission <mission_id>`:\n")
+    print(f"{'LEVEL':<6} {'MISSION ID':<38} {'SKILL':<24} CHECK")
+    print("-" * 108)
     for check in checks:
         status = "configured" if check.test_file.exists() else "missing"
         print(f"{check.level:<6} {check.mission_id:<38} {check.skill:<24} {status}")

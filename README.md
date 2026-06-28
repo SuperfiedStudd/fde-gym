@@ -10,7 +10,7 @@ This is not a tutorial app or a polished product. Codex can maintain the environ
 |---|---|---:|---|
 | Mission cockpit | Next.js + TypeScript | 3000 | Browse missions, system signals, and progress |
 | ClaimOps API | FastAPI + SQLAlchemy | 8000 | Mission, progress, claims, notes, events, and health APIs |
-| Worker | Python asyncio | — | Process Redis jobs and write claim events |
+| Worker | Python asyncio | -- | Process Redis jobs and write claim events |
 | Edge service | Hono + TypeScript | 3001 | Typed profile/event boundary and TS testing surface |
 | Database | Postgres 16 | 5432 | Seeded fictional ClaimOps data |
 | Queue | Redis 7 | 6379 | Local asynchronous job transport |
@@ -22,9 +22,11 @@ The cloud path maps API/web to Cloud Run, Postgres to Cloud SQL, queueing to Pub
 
 Requirements: Docker Desktop with Compose v2. Optional host tooling: Python 3.12+, Node 22+, and npm 10+.
 
+Prefer Python 3.12 for host-side scripts and evaluation. If your machine defaults to Python 3.13, use an explicit 3.12 interpreter for the project virtual environment to match the service/runtime assumptions.
+
 ```bash
 copy .env.example .env
-docker compose up --build
+docker compose up --build -d
 ```
 
 On macOS/Linux use `cp .env.example .env`. Then open:
@@ -33,6 +35,16 @@ On macOS/Linux use `cp .env.example .env`. Then open:
 - FastAPI docs: <http://localhost:8000/docs>
 - Edge health: <http://localhost:3001/health>
 - Prometheus: <http://localhost:9090>
+
+Detached mode (`-d`) is the normal path when you want the stack to keep running in the background. Use attached mode (`docker compose up --build`) when you want live combined logs in the terminal and do not mind occupying that shell.
+
+Smoke check the stack before running mission evaluators:
+
+```bash
+curl http://localhost:8000/health
+curl http://localhost:3001/health
+curl http://localhost:8000/missions
+```
 
 The database initializes automatically from `infra/docker/postgres/`. Push pending seed jobs to Redis when a mission needs the worker:
 
@@ -57,7 +69,7 @@ python scripts/evaluate/list.py
 python scripts/evaluate/run.py --mission lv1-request-validation
 ```
 
-Mission evaluation failures are expected before you solve a mission. Platform smoke tests are separate:
+Run mission evaluation after the stack is healthy. Mission evaluation failures are expected before you solve a mission. Platform smoke tests are separate:
 
 ```bash
 python -m pytest tests/platform
@@ -93,7 +105,7 @@ For a manual reset:
 
 ```bash
 docker compose down --volumes
-docker compose up --build
+docker compose up --build -d
 python scripts/seed/enqueue.py
 ```
 
@@ -129,4 +141,3 @@ Cloud deployment is optional and never required for local missions. Start with [
 - `MISSION_BUG(<mission-id>)` identifies a seeded seam, not necessarily the entire solution.
 - LV3/LV4 missions also contain incomplete technical notes/runbooks on purpose.
 - Never make the full mission suite green in one cleanup pass; that would solve the gym instead of using it.
-

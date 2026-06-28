@@ -87,11 +87,18 @@ services:
     build:
       context: .
       dockerfile: apps/web/Dockerfile
+      target: dev
     environment:
       API_INTERNAL_URL: http://api:8000
       NEXT_PUBLIC_API_URL: http://localhost:8000
+      WATCHPACK_POLLING: "true"
     ports:
       - "3000:3000"
+    volumes:
+      - ./apps/web:/workspace/apps/web
+      - ./packages/shared:/workspace/packages/shared
+      - web-node-modules:/workspace/node_modules
+      - web-next-cache:/workspace/apps/web/.next
     depends_on:
       api:
         condition: service_healthy
@@ -110,4 +117,5 @@ services:
 volumes:
   postgres-data:
   redis-data:
-
+  web-node-modules:
+  web-next-cache:

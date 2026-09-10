@@ -1,0 +1,6 @@
+ticket_id,customer_tier,category,age_hours,customer_blocked
+T-1042,standard,billing,18,false
+T-1043,enterprise,access,5,true
+T-1044,standard,how-to,30,false
+T-1045,growth,integration,12,true
+T-1046,enterprise,billing,3,false

@@ -101,6 +101,23 @@ python scripts/evaluate/run.py --mission lv1-request-validation
 
 Do not fix other `MISSION_BUG` markers while you are there. They are future exercises, not a cleanup backlog.
 
+## Practice in Assessment Mode
+
+Assessment Mode sits alongside the mission system and simulates a live Build-with-AI interview. ChatGPT owns the interview context, while the cockpit exposes only the candidate prompt, time limit, metadata, and supplied resources. The expected workflow is **Understand → Diagnose → Plan → Implement → Verify / Debug → Explain**. See [CHATGPT.md](CHATGPT.md) for interviewer behavior and [assessment/README.md](assessment/README.md) for the candidate-safe bundle format.
+
+Load the included example from the repository root:
+
+```bash
+python scripts/assessment/load.py assessment/examples/customer-support-triage
+```
+
+Then start the web app with the full local stack or directly with `npm run dev:web`, and open:
+
+- Assessment landing page: <http://localhost:3000/assessment>
+- Current candidate brief: <http://localhost:3000/assessment/current>
+
+`assessment/current/` is ignored session state. Loading a bundle replaces that slot; tracked examples remain under `assessment/examples/`. Never place answer keys, hidden findings, grading notes, or interviewer-only material in an assessment bundle.
+
 ## Reset seed data
 
 The reset command destroys only this Compose project's named volumes, recreates the local services, and enqueues pending jobs:
@@ -129,7 +146,9 @@ infra/docker/      Postgres bootstrap and Prometheus configuration
 infra/gcp/         Optional Terraform and deployment helpers
 missions/          5 LV1, 5 LV2, 4 LV3, and 3 LV4 mission briefs
 scripts/evaluate/  Mission catalog and focused grading runner
+scripts/assessment/ Candidate-safe assessment bundle loader
 scripts/seed/      Deterministic local reset and queue helpers
+assessment/        Bundle format, tracked examples, and ignored current session
 tests/platform/    Gym smoke tests expected to pass
 tests/missions/    Mission checks expected to fail until solved
 docs/              Architecture, operations, authoring, and learning path

@@ -1,0 +1,19 @@
+{
+  "id": "customer-support-triage",
+  "title": "Customer support queue triage",
+  "duration_minutes": 45,
+  "difficulty": "introductory",
+  "focus": ["data diagnosis", "prioritization", "clear communication"],
+  "resources": [
+    {
+      "path": "tickets.csv",
+      "label": "Ticket export",
+      "description": "A small anonymized snapshot of the support queue."
+    },
+    {
+      "path": "service-context.md",
+      "label": "Service context",
+      "description": "Background on the team's service commitments."
+    }
+  ]
+}

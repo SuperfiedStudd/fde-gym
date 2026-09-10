@@ -232,19 +232,55 @@ main { min-height: calc(100vh - 116px); }
 .level-matrix li a:hover { color: var(--green); }
 .not-found { padding-top: 140px; }
 .not-found h1 { margin-bottom: 40px; }
+.not-found .empty-state { margin: -18px 0 30px; }
+
+.assessment-landing .page-heading h1 { font-size: clamp(48px, 6vw, 78px); }
+.assessment-landing-grid { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+.assessment-status-panel { align-items: flex-start; display: flex; flex-direction: column; min-height: 390px; }
+.assessment-status-panel h2 { font-size: 28px; font-weight: 520; letter-spacing: -.025em; margin: 34px 0 10px; }
+.assessment-status-panel > p:not(.eyebrow) { color: var(--muted); font-size: 13px; margin: 0 0 32px; }
+.assessment-status-panel .primary-button { margin-top: auto; }
+.assessment-load-state { align-items: center; display: flex; font-family: var(--mono); font-size: 11px; gap: 10px; text-transform: uppercase; }
+.assessment-load-command { background: #030403; border: 1px solid var(--line); color: var(--green); display: block; font-size: 10px; line-height: 1.6; margin-top: auto; overflow-wrap: anywhere; padding: 14px; width: 100%; }
+.assessment-instructions ol { list-style: none; margin: 0; padding: 0; }
+.assessment-instructions li { align-items: baseline; border-top: 1px solid var(--line); display: grid; gap: 20px; grid-template-columns: 150px 1fr; padding: 17px 0; }
+.assessment-instructions li strong { font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; }
+.assessment-instructions li span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.assessment-heading { align-items: end; border-bottom: 1px solid var(--line); display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr) auto; padding: 40px 0 48px; }
+.assessment-heading h1 { font-size: clamp(46px, 6vw, 82px); font-weight: 520; letter-spacing: -.06em; line-height: .95; margin: 0; max-width: 950px; }
+.assessment-meta { color: var(--muted); display: flex; flex-wrap: wrap; font-family: var(--mono); font-size: 9px; gap: 8px; margin-top: 28px; text-transform: uppercase; }
+.assessment-meta span { border: 1px solid var(--line); padding: 6px 8px; }
+.assessment-timer { border: 1px solid var(--green-deep); min-width: 190px; padding: 18px; text-align: right; }
+.assessment-timer span { color: var(--dim); display: block; font-family: var(--mono); font-size: 8px; letter-spacing: .1em; margin-bottom: 8px; text-transform: uppercase; }
+.assessment-timer strong { color: var(--green); font-family: var(--mono); font-size: 28px; font-weight: 500; }
+.assessment-timer-expired { border-color: var(--red); }
+.assessment-timer-expired strong { color: var(--red); }
+.assessment-prompt > h1:first-child { display: block; }
+.assessment-prompt h1 { font-size: 28px; font-weight: 520; margin: 0 0 28px; }
+.assessment-resources ul { list-style: none; margin: 0; padding: 0; }
+.assessment-resources li { border-top: 1px solid var(--line); padding: 18px 0; }
+.assessment-resources li strong { display: block; font-size: 13px; font-weight: 520; margin-bottom: 8px; }
+.assessment-resources li p { color: var(--muted); font-size: 11px; line-height: 1.5; margin: 0 0 9px; }
+.assessment-resources li code { color: var(--dim); display: block; font-size: 9px; margin-bottom: 14px; overflow-wrap: anywhere; }
+.resource-actions { display: flex; gap: 7px; }
+.assessment-resources li a { border: 1px solid var(--line-strong); color: var(--green); display: inline-flex; font-family: var(--mono); font-size: 8px; letter-spacing: .05em; padding: 7px 9px; text-transform: uppercase; }
+.assessment-resources li a:hover { border-color: var(--green); }
+.resource-view .page-heading h1 { font-size: clamp(42px, 5vw, 68px); }
+.resource-view pre { background: #030403; border: 1px solid var(--line); color: #c9d1ca; font-size: 12px; line-height: 1.7; margin: 0; overflow: auto; padding: 24px; white-space: pre-wrap; }
 
 footer { border-top: 1px solid var(--line); color: var(--dim); display: flex; font-family: var(--mono); font-size: 9px; justify-content: space-between; letter-spacing: .08em; padding: 24px 32px; text-transform: uppercase; }
 
 @media (max-width: 980px) {
   .topbar { grid-template-columns: 1fr auto; padding: 0 18px; }
   .topbar nav { display: none; }
-  .hero, .dashboard-grid, .detail-grid, .evaluation-callout { grid-template-columns: 1fr; }
+  .hero, .dashboard-grid, .detail-grid, .evaluation-callout, .assessment-landing-grid, .assessment-heading { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
   .hero-actions { justify-self: start; }
   .metric-strip { grid-template-columns: repeat(2, 1fr); }
   .mission-grid { grid-template-columns: repeat(2, 1fr); }
   .detail-heading { grid-template-columns: 1fr; }
   .sticky-panel { position: static; }
+  .assessment-timer { justify-self: start; text-align: left; }
   .study-grid, .file-panel, .hint-list { grid-template-columns: 1fr; }
   .learning-mode-heading, .tutor-heading { align-items: flex-start; flex-direction: column; }
   .file-list { grid-template-columns: 1fr; width: 100%; }
@@ -263,5 +299,5 @@ footer { border-top: 1px solid var(--line); color: var(--dim); display: flex; fo
   .result-count { margin-left: 0; }
   .next-mission { align-items: start; grid-template-columns: auto 1fr; }
   .operation-id { display: none; }
+  .assessment-instructions li { gap: 8px; grid-template-columns: 1fr; }
 }
-

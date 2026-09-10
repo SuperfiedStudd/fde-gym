@@ -34,5 +34,5 @@ Resource paths are filenames relative to `resources/`; nested paths, absolute pa
 `assessment/current/` is ignored local session state. Load a tracked example with:
 
 ```bash
-python scripts/assessment/load.py assessment/examples/customer-support-triage
+python3 scripts/assessment/load.py assessment/examples/customer-support-triage
 ```

@@ -63,6 +63,17 @@ docker compose logs -f api worker edge-service
 
 See [docs/local-setup.md](docs/local-setup.md) for host-only workflows and troubleshooting.
 
+## Daily local workflow
+
+This repository is the canonical local FDE Gym workspace for development, assessments, experiments, and interview practice:
+
+```bash
+cd /Users/jasjyotsingh/Documents/ChatGPT/fge-gym
+./scripts/dev/start.sh --assessment assessment/examples/customer-support-triage
+```
+
+For an already loaded assessment, run `./scripts/dev/start.sh`. Open <http://localhost:3000/assessment>. Use the ignored `scratch/` directory for temporary datasets, experiments, and working files; promote only intentional examples or missions into Git.
+
 ## Work a mission
 
 1. Open the cockpit and choose one operation.
@@ -108,7 +119,7 @@ Assessment Mode sits alongside the mission system and simulates a live Build-wit
 Load the included example from the repository root:
 
 ```bash
-python scripts/assessment/load.py assessment/examples/customer-support-triage
+python3 scripts/assessment/load.py assessment/examples/customer-support-triage
 ```
 
 Then start the web app with the full local stack or directly with `npm run dev:web`, and open:

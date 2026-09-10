@@ -11,6 +11,7 @@ coverage/
 dist/
 data/progress.json
 assessment/current/
+scratch/
 infra/gcp/.terraform/
 infra/gcp/*.tfstate*
 infra/gcp/tfplan

@@ -90,12 +90,14 @@ services:
       target: dev
     environment:
       API_INTERNAL_URL: http://api:8000
+      ASSESSMENT_ROOT: /workspace/assessment/current
       NEXT_PUBLIC_API_URL: http://localhost:8000
       WATCHPACK_POLLING: "true"
     ports:
       - "3000:3000"
     volumes:
       - ./apps/web:/workspace/apps/web
+      - ./assessment:/workspace/assessment:ro
       - ./packages/shared:/workspace/packages/shared
       - web-node-modules:/workspace/node_modules
       - web-next-cache:/workspace/apps/web/.next

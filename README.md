@@ -68,7 +68,7 @@ See [docs/local-setup.md](docs/local-setup.md) for host-only workflows and troub
 This repository is the canonical local FDE Gym workspace for development, assessments, experiments, and interview practice:
 
 ```bash
-cd /Users/jasjyotsingh/Documents/ChatGPT/fge-gym
+cd /Users/jasjyotsingh/Projects/fde-gym
 ./scripts/dev/start.sh --assessment assessment/examples/customer-support-triage
 ```
 

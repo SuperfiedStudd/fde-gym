@@ -10,6 +10,7 @@ node_modules/
 coverage/
 dist/
 data/progress.json
+assessment/current/
 infra/gcp/.terraform/
 infra/gcp/*.tfstate*
 infra/gcp/tfplan
